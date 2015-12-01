@@ -1,20 +1,27 @@
 # PeerMORGClient
-javascript client library for MO games powered by WebRTC
+javascript client library for MO games powered by WebRTC.
 
 # usage
+
+#### HTMLへタグを追加
 ```
 <script src="./js/lib/peerMORGClient.js"></script>
-PeerMORGClientオブジェクトを生成
+```
 
+#### PeerMORGClientオブジェクトを生成
+```
 peer = new PeerMORGClient();
-ゲームへの参加
-
+```
+#### ゲームへの参加
+```
 peer.join(params);
-データ送信(P2P)
-
+```
+#### データ送信(P2P)
+```
 peer.sendData(json)
-イベントをリッスン
-
+```
+#### イベント監視
+```
 //アプリケーションサーバとの接続成功時
 peer.on('open',function(data){
 });
