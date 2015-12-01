@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>BoxKart</title>
+		<meta charset="utf-8">
+		<style>
+            @font-face {
+                font-family: 'FAMania2.6.OTF';
+                src: url('./font/FAMania2.6.OTF') format('truetype');
+            }
+			body {
+				font-family: 'FAMania2.6.OTF';
+				margin: 0px;
+				color: #fff;
+                background: #000;
+			}
+            .title {
+                text-align:center;
+                margin-top:50px;
+            }
+            .titleImage {
+                display:inline-block;
+            }
+            .inputName {
+                font-size:20px;
+                margin-top:70px;
+            }
+            .roomListWrapper {
+                width:470px;
+                margin:0 auto;
+                text-align:center;
+            }
+            .waitTxt {
+                text-align:center;
+                font-size:20px;
+                margin-top:100px;
+            }
+            .menu {
+                text-align:center;
+                font-size:30px;
+            }
+            .roomContainer {
+                width:470px;
+                height:105px;
+                display:block;
+                position:relative;
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+                background-color:#333333;   
+            }
+            .raceName {
+                position:absolute;
+                top:-8px;
+                left:17px;
+                font-size:27px;
+                color:#FFFF00;
+            }
+            .roomRemainTime {
+                position:absolute;
+                top:14px;
+                right:14px;
+            }
+            .roomMember {
+                position:absolute;
+                top:52px;
+                left:17px;
+            }
+            .joinBtn {
+                position:absolute;
+                top:61px;
+                left:400px;
+            }
+            .copyright {
+                text-align:center;
+                font-size:15px;
+                margin-top:150px;
+            }
+            .canvasWrapper {
+                width:800px;
+                height:480px;
+                margin: 0 auto;
+                margin-top: 70px;
+            }
+            .mycanvas {
+                /*background: -webkit-linear-gradient(top, #2D88E4 0%,rgba(255, 255, 255, 0.21) 40%);*/
+                background: #2D88E4;
+            }
+            
+            .cntStyle {
+                position:absolute;
+                top:24%;
+                left:50%;
+                margin-left:-65px;
+            }
+            .cntStyleGo {
+                position:absolute;
+                top:24%;
+                left:50%;
+                margin-left:-188px;
+            }
+            .joinTxt {
+                position: absolute;
+                top: 55px;
+                right: 14px;
+                color: #FF0000;
+            }
+            .closeTxt {
+                position: absolute;
+                top: 55px;
+                right: 14px;
+                color: #FF0000;
+            }
+            .mySpeedMeter {
+                font-size:11px;
+                margin-bottom:5px;
+            }
+            .winner {
+                position: absolute;
+                top: 220px;
+                left: 50%;
+                margin-left:-312px;
+            }
+            .loser {
+                position: absolute;
+                top: 220px;
+                left: 50%;
+                margin-left:-321px;
+            }
+            .center {
+                text-align:center;
+            }
+            
+            .mt70{
+                margin-top:70px;   
+            }
+            .mt10{
+                margin-bottom:30px;   
+            }
+            .mb30{
+                margin-bottom:30px;   
+            }
+            
+            .fcYellow {
+                color: #FFFF00;   
+            }
+            .fcRed {
+                color: #FF0000;   
+            }
+		</style>
+	</head>
+	<body>
+        <div id="container">
+            <div id="startCnt">
+                <img src="./images/1.png" id="start1" class="cntStyle" style="display:none;">
+                <img src="./images/2.png" id="start2" class="cntStyle" style="display:none;">
+                <img src="./images/3.png" id="start3" class="cntStyle" style="display:none;">
+                <img src="./images/0.png" id="start0" class="cntStyleGo" style="display:none;">
+                <img src="./images/win.png" id="win" class="winner" style="display:none;">
+                <img src="./images/lose.png" id="lose" class="loser" style="display:none;">
+            </div>
+            <div id="startScene" class="center">
+                <div id="titleWrapper" class="title"><img src="./images/title.png" class="titleImage"></div>
+                <div id="inputWrapper">
+                    <p class="inputName">input your name</p>
+                    <input type="text" id="myName" maxlength="6"><input type="button" id="connectBtn" value="CONNECT">
+                </div>
+                <div id="roomListWrapper" class="roomListWrapper" style="display:none;">
+                    <p class="inputName">RACE LIST</p>
+                    <div><input type="button" id="newGameBtn" value="NEW RACE" class="mb30"></div>
+                    <div id="roomListContainer">
+                    </div>
+                </div>
+                <div id="waitWrapper" style="display:none;">
+                    <p class="waitTxt">waiting for opponent...</p>
+                    <p class="waitSec">remain time is <span id="remainSec" class="fcYellow"></span>sec.</p>
+                    <div id="joinMemberList" class="mt70">
+                    </div>
+                </div>
+                <p class="copyright">copyright 2013 TOMOYUKI TAKATA</p>
+            </div>
+            <div id="canvasWrapper" class="canvasWrapper" style="display:none;">
+                <div id="mySpeedMeter" class="mySpeedMeter">SPEED: <span id="mySpeed">0</span></div>
+                <canvas id="mycanvas" class="mycanvas"></canvas>
+            </div>
+        </div>
+        <script src="./js/groundData.js"></script>
+        <script src="./js/lib/eventEmitter.js"></script>
+        <script src="./js/lib/peerMORGClient.js"></script>
+        <script src="./js/lib/three.min.js"></script>
+		<script src="./js/lib/stats.min.js"></script>
+        <script src="http://mrdoob.github.com/three.js/examples/fonts/helvetiker_regular.typeface.js"></script>
+		<script src="./js/gamelogic.js"></script>
+	</body>
+</html>
